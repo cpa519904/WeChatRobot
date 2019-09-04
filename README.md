@@ -1,7 +1,3 @@
-+ 申请ID：走猫步的鱼
-+ 个人邮箱：1253427499@qq.com
-+ 原创技术文章：Xposed模块-微信机器人（自动回复消息）
-
 ## 开发环境
 + Android Studio 3.5
 + 微信 7.0.6
@@ -68,7 +64,7 @@
 
  微信使用的数据库是他们自家的开源数据库 [WCDB](https://github.com/Tencent/wcdb)，所以我们只需要去看一下他们的[api](https://tencent.github.io/wcdb/references/android/reference/com/tencent/wcdb/database/SQLiteDatabase.html)，找出 **插入数据** 的方法，然后通过 hook 这个方法，就可以获取到我们需要的数据。
  
- 通过查看 api 和了解一些 SQL 常识，我们可以大概判断插入数据是这个方法[insert](https://tencent.github.io/wcdb/references/android/reference/com/tencent/wcdb/database/SQLiteDatabase.html#insert(java.lang.String,%20java.lang.String,%20android.content.ContentValues),下面我们就先 hook 下这个方法看看。
+ 通过查看 api 和了解一些 SQL 常识，我们可以大概判断插入数据是这个方法[insert](https://tencent.github.io/wcdb/references/android/reference/com/tencent/wcdb/database/SQLiteDatabase.html#insert(java.lang.String,%20java.lang.String,%20android.content.ContentValues)),下面我们就先 hook 下这个方法看看。
 
  ~~~
 class MainHook : IXposedHookLoadPackage {
@@ -377,4 +373,3 @@ XposedHelpers.findAndHookMethod(
 ![截图1](http://ww1.sinaimg.cn/large/c43dae63gy1g6mhikrqgjj20u01o07ag.jpg)
 
 哈哈哈，成功啦！
-[GitHub地址](https://github.com/WANZIzZ/WeChatRobot)
